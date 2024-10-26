@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Header from './Header'
+import CallbackHome from './callback/CallbackHome'
+import Home from './Home'
+import RefHome from './ref/RefHome'
+import UseEffectsHome from './useEffects/UseEffectsHome'
+import TaskApp from './useReducerEx/TaskApp'
 
-function App() {
+const App = () => {
+  const [isDark, setIsDark] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={isDark}
+          onChange={e => setIsDark(e.target.checked)}
+        />
+        Dark mode
+      </label>
+      <div className={isDark ? 'dark' : 'light'}>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/callback" element={<CallbackHome />} />
+          {/* <CallbackHome /> */}
+          <Route path="/refs" element={<RefHome />} />
+          {/* <RefHome /> */}
+          <Route path="/useeffect" element={<UseEffectsHome />} />
+          {/* <UseEffectsHome /> */}
+          <Route path="/usereducer" element={<TaskApp />} />
+          {/* <TaskApp /> */}
+        </Routes>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
