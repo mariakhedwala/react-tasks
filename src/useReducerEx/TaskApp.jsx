@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useState } from 'react'
 import AddTask from './AddTask'
 import TaskList from './TaskList'
 
@@ -31,13 +31,18 @@ function tasksReducer(tasks, action) {
 
 const TaskApp = () => {
     const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+    const [invalid, setInvalid] = useState(false);
 
     function handleAddTask(text) {
-        dispatch({
-            type: 'added',
-            id: nextId++,
-            text: text
-        })
+        if (text.length > 2) {
+            dispatch({
+                type: 'added',
+                id: nextId++,
+                text: text
+            })
+            setInvalid(false)
+        }
+        else setInvalid(true);
     }
 
     function handleChangeTask(task) {
@@ -57,6 +62,7 @@ const TaskApp = () => {
     return (
         <>
             <h1>Prague Itinerary</h1>
+            {invalid && <p>Invalid Entry. Enter more than 3 letters</p>}
             <AddTask onAddTask={handleAddTask} />
             <TaskList tasks={tasks}
                 onChangeTask={handleChangeTask}

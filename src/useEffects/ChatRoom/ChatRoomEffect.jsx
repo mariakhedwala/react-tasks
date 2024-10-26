@@ -27,7 +27,8 @@ export default function ChatRoomEffect() {
     const [roomId, setRoomId] = useState('general');
     const [show, setShow] = useState(false);
     return (
-        <>
+        <div>
+            <h3>Chat Room using useEffect</h3>
             <label>
                 Choose the chat room:{' '}
                 <select
@@ -44,6 +45,6 @@ export default function ChatRoomEffect() {
             </button>
             {show && <hr />}
             {show && <ChatRoom roomId={roomId} />}
-        </>
+        </div>
     );
 }

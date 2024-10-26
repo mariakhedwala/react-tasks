@@ -22,17 +22,19 @@ const App = () => {
       </label>
       <div className={isDark ? 'dark' : 'light'}>
         <Header />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/callback" element={<CallbackHome />} />
-          {/* <CallbackHome /> */}
-          <Route path="/refs" element={<RefHome />} />
-          {/* <RefHome /> */}
-          <Route path="/useeffect" element={<UseEffectsHome />} />
-          {/* <UseEffectsHome /> */}
-          <Route path="/usereducer" element={<TaskApp />} />
-          {/* <TaskApp /> */}
-        </Routes>
+        <div className='container'>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/callback" element={<CallbackHome />} />
+            {/* <CallbackHome /> */}
+            <Route path="/refs" element={<RefHome />} />
+            {/* <RefHome /> */}
+            <Route path="/useeffect" element={<UseEffectsHome />} />
+            {/* <UseEffectsHome /> */}
+            <Route path="/usereducer" element={<TaskApp />} />
+            {/* <TaskApp /> */}
+          </Routes>
+        </div>
       </div>
     </div>
   )
