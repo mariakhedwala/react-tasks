@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div>
-      <label>
+      <label className='themebutton'>
         <input
           type="checkbox"
           checked={isDark}

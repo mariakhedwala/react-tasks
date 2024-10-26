@@ -56,6 +56,7 @@ ul li a.active {
   max-width: calc(100% - 60px);
   margin: 0 auto;
   padding: 30px 10px;
+  min-height: calc(100vh - 60px);
 }
 
 header {
@@ -95,4 +96,12 @@ form button, form input {
 }
 .container ul {
   padding: 0;
+}
+
+.themebutton {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  padding: 10px 20px;
+  color: rgb(148, 146, 146);
 }
